@@ -29,6 +29,9 @@
  $book3 = new book('tom sawyer','mark twin');
  $book4 = new book('50 nuances degres','romance');
  
+ $books = array();
+
+    array_push($books, $book1, $book2, $book3, $book4);
  
  ?>
 
@@ -39,20 +42,27 @@
 <?= var_export ($book2) ?>
 <?= var_export ($book3) ?>
 <?= var_export ($book4) ?>
+
 </pre>
 
-<h4 class="center grey-text">My Favorite Books!</h4>
+
                 
+<h4 class="center grey-text">My Favorite Books!</h4>
+
 <div class="container">
     <div class="row">
+        <?php foreach($books as $book): ?>
         <div class="col s6 md3">
             <div class="card z-depth-0">
                 <div class="card-content center">
-                    <h6><?= $book1; ?></h6>
+                    <h6><?php echo $book; ?></h6>
+                    <ul class="grey-text">
+
+                    </ul>
                 </div>
             </div>
         </div>
-        
+        <?php endforeach; ?>
     </div>
 </div>
 

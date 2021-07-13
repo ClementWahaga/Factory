@@ -28,7 +28,7 @@ array_push($movies, $movie1Info, $movie2Info, $movie3Info, $movie4Info,$movie5In
         <?php foreach($movies as $movie): ?>
         <div class="col s6 md3">
             <div class="card z-depth-0">
-                <img src="public/img/movies.png" class="pizza" alt="">
+                <img src="img/movie.png" class="pizza" alt="">
                 <div class="card-content center">
                     <h6><?php echo $movie; ?></h6>
                     <ul class="grey-text">
