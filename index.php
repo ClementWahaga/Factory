@@ -5,21 +5,21 @@
 
 
 
-$book1 = BookFactory::create('The Redbreast', 'Jo Nesbo');
-$book2 = BookFactory::create('The Seventh Scroll', 'Wilbur Smith');
-$book3 = BookFactory::create('Birdsong', 'Sebastian Faulks');
-$book4 = BookFactory::create('Artimis', 'Andy Weir');
-$book5 = BookFactory::create('Lord of ring','J.R.R Tolkien');
+$movie1 = movieFactory::create('The Redbreast', 'Jo Nesbo');
+$movie2 = movieFactory::create('The Seventh Scroll', 'Wilbur Smith');
+$movie3 = movieFactory::create('Birdsong', 'Sebastian Faulks');
+$movie4 = movieFactory::create('harry potter', 'J.K Rowling');
+$movie5 = movieFactory::create('Lord of ring','J.R.R Tolkien');
 
-$book1Info = $book1->getNameAndAuthor();
-$book2Info = $book2->getNameAndAuthor();
-$book3Info = $book3->getNameAndAuthor();
-$book4Info = $book4->getNameAndAuthor();
-$book5Info = $book5->getNameAndAuthor();
+$movie1Info = $movie1->getNameAndAuthor();
+$movie2Info = $movie2->getNameAndAuthor();
+$movie3Info = $movie3->getNameAndAuthor();
+$movie4Info = $movie4->getNameAndAuthor();
+$movie5Info = $movie5->getNameAndAuthor();
 
-$books = array();
+$movies = array();
 
-array_push($books, $book1Info, $book2Info, $book3Info, $book4Info,$book5Info);
+array_push($movies, $movie1Info, $movie2Info, $movie3Info, $movie4Info,$movie5Info);
 
 
 
@@ -27,16 +27,16 @@ array_push($books, $book1Info, $book2Info, $book3Info, $book4Info,$book5Info);
 
 ?>
 
-<h4 class="center grey-text">My Favorite Books!</h4>
+<h4 class="center grey-text">Mes Livres préferer</h4>
 
 <div class="container">
     <div class="row">
-        <?php foreach($books as $book): ?>
+        <?php foreach($movies as $movie): ?>
         <div class="col s6 md3">
             <div class="card z-depth-0">
-                <img src="public/img/books.png" class="pizza" alt="">
+                <img src="public/img/movies.png" class="pizza" alt="">
                 <div class="card-content center">
-                    <h6><?php echo $book; ?></h6>
+                    <h6><?php echo $movie; ?></h6>
                     <ul class="grey-text">
 
                     </ul>
