@@ -3,21 +3,21 @@
     // factory pattern ///
     //-------------------------------------------------------creation de la class movie------------------------------------------------------------//
         /*
-        *ici on cree le pattern  qui est  class book  
+        *ici on cree le pattern  qui est  class movie  
         */
     class movie {
 
         
-        private $movieName;
-        private $movieAuthor;
+        private $movieTitle;
+        private $movieProducter;
         
     
-        public function __construct($name, $author) {
-            $this->movieName = $name;
-            $this->movieAuthor = $author;
+        public function __construct($Title, $Producter) {
+            $this->movieTitle = $Title;
+            $this->movieProducter = $Producter;
         }
-        public function getNameAndAuthor() {
-            return $this->movieName . ' - ' . $this->movieAuthor;
+        public function getTitleAndProducter() {
+            return $this->movieTitle . ' - ' . $this->movieProducter;
         }
 
     }
@@ -29,8 +29,8 @@
         */
     class movieFactory {
 
-        public static function create($name, $author) {
-            return new movie($name, $author);
+        public static function create($Title, $Producter) {
+            return new movie($Title, $Producter);
         }
     }
 
