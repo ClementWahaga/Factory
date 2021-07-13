@@ -8,16 +8,16 @@
     class movie {
 
         
-        private $movieTitle;
-        private $movieProducter;
+        private $movieName;
+        private $movieAuthor;
         
     
-        public function __construct($Title, $Producter) {
-            $this->movieTitle = $Title;
-            $this->movieProducter = $Producter;
+        public function __construct($name, $author) {
+            $this->movieName = $name;
+            $this->movieAuthor = $author;
         }
-        public function getTitleAndProducter() {
-            return $this->movieTitle . ' - ' . $this->movieProducter;
+        public function getNameAndAuthor() {
+            return $this->movieName . ' - ' . $this->movieAuthor;
         }
 
     }
@@ -29,8 +29,8 @@
         */
     class movieFactory {
 
-        public static function create($Title, $Producter) {
-            return new movie($Title, $Producter);
+        public static function create($name, $author) {
+            return new movie($name, $author);
         }
     }
 
