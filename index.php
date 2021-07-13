@@ -3,8 +3,6 @@
 
 <?php include('templates/header.php');
 
-
-
 $movie1 = movieFactory::create('Matrix trilogie', 'Lana Wachowski & Lilly Wachowski');
 $movie2 = movieFactory::create('StarWars Saga', 'Lucas film');
 $movie3 = movieFactory::create('Ghost in the shell(anime)', 'Mamoru Oshi');
@@ -20,10 +18,6 @@ $movie5Info = $movie5->getTitleAndProducter();
 $movies = array();
 
 array_push($movies, $movie1Info, $movie2Info, $movie3Info, $movie4Info,$movie5Info);
-
-
-
-
 
 ?>
 

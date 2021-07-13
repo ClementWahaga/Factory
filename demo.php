@@ -1,120 +1,55 @@
-<?php
+<?php 
 
+    // factory pattern ///
+    
+    class Book {
+        private $bookName;
+        private $bookAuthor;
+        const BR = '<br />';
+    
+        public function __construct($name, $author) {
+            $this->bookName = $name;
+            $this->bookAuthor = $author;
+        }
+        public function getNameAndAuthor() {
+            return $this->bookName . ' - ' . $this->bookAuthor.self::BR;
+        }
 
-/**
- * The Creator class declares the factory method that is supposed to return an
- * object of a Product class. The Creator's subclasses usually provide the
- * implementation of this method.
- */
-abstract class Creator
-{
-    /**
-     * Note that the Creator may also provide some default implementation of the
-     * factory method.
-     */
-    abstract public function factoryMethod(): Product;
-
-    /**
-     * Also note that, despite its name, the Creator's primary responsibility is
-     * not creating products. Usually, it contains some core business logic that
-     * relies on Product objects, returned by the factory method. Subclasses can
-     * indirectly change that business logic by overriding the factory method
-     * and returning a different type of product from it.
-     */
-    public function someOperation(): string
-    {
-        // Call the factory method to create a Product object.
-        $product = $this->factoryMethod();
-        // Now, use the product.
-        $result = "Creator: The same creator's code has just worked with " .
-            $product->operation();
-
-        return $result;
     }
-}
 
-/**
- * Concrete Creators override the factory method in order to change the
- * resulting product's type.
- */
-class ConcreteCreator1 extends Creator
-{
-    /**
-     * Note that the signature of the method still uses the abstract product
-     * type, even though the concrete product is actually returned from the
-     * method. This way the Creator can stay independent of concrete product
-     * classes.
-     */
-    public function factoryMethod(): Product
-    {
-        return new ConcreteProduct1();
-    }
-}
+    
+?>
 
-class ConcreteCreator2 extends Creator
-{
-    public function factoryMethod(): Product
-    {
-        return new ConcreteProduct2();
-    }
-}
+<!DOCTYPE html>
+<html>
 
-/**
- * The Product interface declares the operations that all concrete products must
- * implement.
- */
-interface Product
-{
-    public function operation(): string;
-}
+<?php include('templates/header.php');
+ $book1 = new book('saw','thriller')
+ 
+ 
+ ?>
 
-/**
- * Concrete Products provide various implementations of the Product interface.
- */
-class ConcreteProduct1 implements Product
-{
-    public function operation(): string
-    {
-        return "{Result of the ConcreteProduct1}";
-    }
-}
 
-class ConcreteProduct2 implements Product
-{
-    public function operation(): string
-    {
-        return "{Result of the ConcreteProduct2}";
-    }
-}
 
-/**
- * The client code works with an instance of a concrete creator, albeit through
- * its base interface. As long as the client keeps working with the creator via
- * the base interface, you can pass it any creator's subclass.
- */
-function clientCode(Creator $creator)
-{
-    // ...
-    echo "Client: I'm not aware of the creator's class, but it still works.\n"
-        . $creator->someOperation();
-    // ...
-}
+<pre>
+<?= var_export ($book1) ?>
+</pre>
 
-/**
- * The Application picks a creator's type depending on the configuration or
- * environment.
- */
-/*echo "App: Launched with the ConcreteCreator1.\n";
-clientCode(new ConcreteCreator1());
-echo "\n\n";
+<h4 class="center grey-text">My Favorite Books!</h4>
+                
+<div class="container">
+    <div class="row">
+        <div class="col s6 md3">
+            <div class="card z-depth-0">
+                <div class="card-content center">
+                    <h6><?=  serialize($book1); ?></h6>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
 
-echo "App: Launched with the ConcreteCreator2.\n";
-clientCode(new ConcreteCreator2());
- //Output.txt: Résultat de l’exécution
-App: Launched with the ConcreteCreator1.
-Client: I'm not aware of the creator's class, but it still works.
-Creator: The same creator's code has just worked with {Result of the ConcreteProduct1}
+<?php include('templates/footer.php'); ?>
 
-App: Launched with the ConcreteCreator2.
-Client: I'm not aware of the creator's class, but it still works.
-Creator: The same creator's code has just worked with {Result of the ConcreteProduct2}*/
+</html>
