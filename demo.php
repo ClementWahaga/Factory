@@ -1,71 +1,39 @@
-<?php 
-
+<?php
     // factory pattern ///
+    /**
+     * creation de la class Transport 
+     */
+    class transportAvion {
+        protected $type;
+        
     
-    class Book {
-        private $bookName;
-        private $bookAuthor;
-        const BR = '<br />';
-    
-        public function __construct($name, $author) {
-            $this->bookName = $name;
-            $this->bookAuthor = $author;
+        public function __construct($type) {
+            $this->$type;
         }
-        public function getNameAndAuthor() {
-            return $this->bookName . ' - ' . $this->bookAuthor.self::BR;
+        public function getType($type) {
+            return $this->$type ;
         }
 
     }
 
-    
-?>
+    class transportBateau {
+        protected $type;
 
-<!DOCTYPE html>
-<html>
+    }
 
-<?php include('templates/header.php');
- $book1 = new book('saw','thriller');
- $book2 = new book('mobidick','roman');
- $book3 = new book('tom sawyer','mark twin');
- $book4 = new book('50 nuances degres','romance');
- 
- $books = array();
+     /**
+     * creation de methode factory  
+     */
+    class transportFactory {
 
-    array_push($books, $book1, $book2, $book3, $book4);
- 
- ?>
+        public static function create($type) {
+        $type = ucfirst($className);
 
+            return new transport.$type;
+        }
+    }
 
 
-<pre>
-<?= var_export ($book1) ?>
-<?= var_export ($book2) ?>
-<?= var_export ($book3) ?>
-<?= var_export ($book4) ?>
+$fedex = transportFactory::create(avion);
 
-</pre>
-
-
-                
-<h4 class="center grey-text">My Favorite Books!</h4>
-
-<div class="container">
-    <div class="row">
-        <?php foreach($books as $book): ?>
-        <div class="col s6 md3">
-            <div class="card z-depth-0">
-                <div class="card-content center">
-                    <h6><?php echo $book; ?></h6>
-                    <ul class="grey-text">
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <?php endforeach; ?>
-    </div>
-</div>
-
-<?php include('templates/footer.php'); ?>
-
-</html>
+var_dump ($car);
